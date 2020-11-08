@@ -15,14 +15,12 @@ def main():
 
     if args.board_grid % args.unit_grid != 0:
         sys.exit()
-
     if len(args.positions) == args.unit_n:
-        if any(_ < 1 | _ > (args.board_grid/args.unit_grid)**2 
+        if any(_ < 1 | _ > (args.board_grid/args.unit_grid)**2
            for _ in args.positions):
             sys.exit()
     else:
         sys.exit()
-    
     if not os.path.exists(args.outdir):
         os.makedirs(args.o)
     with open(args.outdir + "/" + args.file_name + ".png", "w") as fig:
