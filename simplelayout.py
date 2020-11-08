@@ -12,7 +12,6 @@ def main():
     parser.add_argument("-o", "--outdir", type=str)
     parser.add_argument("--file_name", type=str)
     args = parser.parse_args()
-
     if args.board_grid % args.unit_grid != 0:
         sys.exit()
     if len(args.positions) == args.unit_n:
