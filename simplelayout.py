@@ -14,9 +14,9 @@ def main():
     args = parser.parse_args()
     if args.board_grid % args.unit_grid != 0:
         sys.exit()
+    inter_value = (args.board_grid / args.unit_grid)**2
     if len(args.positions) == args.unit_n:
-        if any(_ < 1 | _ > (args.board_grid/args.unit_grid)**2
-           for _ in args.positions):
+        if any(_ < 1 | _ > inter_value for _ in args.positions):
             sys.exit()
     else:
         sys.exit()
