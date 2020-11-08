@@ -17,7 +17,8 @@ def main():
         sys.exit()
 
     if len(args.positions) == args.unit_n:
-        if any(_ < 1 | _ > (args.board_grid/args.unit_grid)**2 for _ in args.positions):
+        if any(_ < 1 | _ > (args.board_grid/args.unit_grid)**2
+               for _ in args.positions):
             sys.exit()
     else:
         sys.exit()
