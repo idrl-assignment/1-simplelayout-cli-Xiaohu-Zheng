@@ -12,17 +12,14 @@ def main():
     parser.add_argument("-o", "--outdir", type=str)
     parser.add_argument("--file_name", type=str)
     args = parser.parse_args()
-
     if args.board_grid % args.unit_grid != 0:
         sys.exit()
-
+    max_value = (args.board_grid / args.unit_grid)**2
     if len(args.positions) == args.unit_n:
-        if any(_ < 1 | _ > (args.board_grid/args.unit_grid)**2
-               for _ in args.positions):
+        if any(_ < 1 | _ > max_value for _ in args.positions):
             sys.exit()
     else:
         sys.exit()
-    
     if not os.path.exists(args.outdir):
         os.makedirs(args.o)
     with open(args.outdir + "/" + args.file_name + ".png", "w") as fig:
