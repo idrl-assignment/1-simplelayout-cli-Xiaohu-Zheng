@@ -5,8 +5,8 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--board_grid", type=int, help="Layout board resolution, representing the number of pixels on the sides of the rectangular area")
-    parser.add_argument("--unit_grid", type=int, help="Rectangular component resolution")
+    parser.add_argument("--board_grid", type=int)
+    parser.add_argument("--unit_grid", type=int)
     parser.add_argument("--unit_n", type=int)
     parser.add_argument("--positions", type=int, nargs="+")
     parser.add_argument("--outdir", type=str)
@@ -18,13 +18,14 @@ def main():
     
     upper_value = (args.board_grid / args.unit_grid)**2
     if len(args.positions) == args.unit_n:
-        if min(args.positions) < 1 | max(args.positions) > upper_value:
+        if min(args.positions) < 1 or max(args.positions) > upper_value:
             sys.exit()
     else:
         sys.exit()
 
     if not os.path.exists(args.outdir):
         os.makedirs(args.o)
+    
     with open(args.outdir + "/" + args.file_name + ".png", "w") as fig:
         pass
     with open(args.outdir + "/" + args.file_name + ".mat", "w") as figdata:
