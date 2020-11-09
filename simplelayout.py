@@ -9,7 +9,7 @@ def main():
     parser.add_argument("--unit_grid", type=int)
     parser.add_argument("--unit_n", type=int)
     parser.add_argument("--positions", type=int, nargs='+')
-    parser.add_argument("-o", "--outdir", type=str)
+    parser.add_argument("--o", "--outdir", type=str)
     parser.add_argument("--file_name", type=str)
     args = parser.parse_args()
     if args.board_grid % args.unit_grid != 0:
@@ -21,7 +21,6 @@ def main():
                 sys.exit()
     else:
         sys.exit()
-
     if not os.path.exists(args.outdir):
         os.makedirs(args.o)
     with open(args.outdir + "/" + args.file_name + ".png", "w") as fig:
