@@ -26,9 +26,9 @@ def main():
     if not os.path.exists(args.outdir):
         os.makedirs(args.outdir)
 
-    with open(args.outdir + "/" + args.file_name + ".png", "w") as fig:
+    with open(args.outdir + "/" + args.file_name + ".png", "w") as _:
         pass
-    with open(args.outdir + "/" + args.file_name + ".mat", "w") as figdata:
+    with open(args.outdir + "/" + args.file_name + ".mat", "w") as _:
         pass
 
 
